@@ -1,6 +1,7 @@
 package top.huhuiyu.springboot.gradle.basic.test;
 
 import java.util.Scanner;
+
 /**
  * 临时测试类
  * 

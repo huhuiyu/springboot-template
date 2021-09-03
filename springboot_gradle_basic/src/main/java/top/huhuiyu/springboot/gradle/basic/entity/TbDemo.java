@@ -16,16 +16,16 @@ public class TbDemo implements Serializable {
 
   private static final long serialVersionUID = -4311761713993667673L;
 
-  @ApiModelProperty(value = "did")
+  @ApiModelProperty(value = "主键")
   @ApiParam(hidden = true)
   private java.lang.Integer did;
-  @ApiModelProperty(value = "demoKey")
+  @ApiModelProperty(value = "演示键")
   @ApiParam(hidden = true)
   private java.lang.String demoKey;
-  @ApiModelProperty(value = "demoValue")
+  @ApiModelProperty(value = "演示值")
   @ApiParam(hidden = true)
   private java.lang.String demoValue;
-  @ApiModelProperty(value = "lastupdate")
+  @ApiModelProperty(value = "信息最后修改时间")
   @ApiParam(hidden = true)
   private java.util.Date lastupdate;
 

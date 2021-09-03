@@ -16,10 +16,10 @@ public class TbDemoModel implements Serializable {
   private static final long serialVersionUID = -7223441093863774542L;
 
   @ApiParam(hidden = true)
-  private TbDemo tbDemo=new TbDemo();
+  private TbDemo tbDemo = new TbDemo();
   @ApiParam(hidden = true)
-  private PageBean page=new PageBean();
-  
+  private PageBean page = new PageBean();
+
   public TbDemoModel() {
   }
 

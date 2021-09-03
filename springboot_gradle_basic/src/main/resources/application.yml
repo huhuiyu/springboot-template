@@ -24,7 +24,7 @@ spring:
       max-request-size: 10MB
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://huhuiyu.top:3306/db_springboot_basic_demo?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2b8
+    url: jdbc:mysql://数据库服务器地址:3306/数据库名称?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2b8
     username: 数据库用户名
     password: 数据库密码
     hikari:

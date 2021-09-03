@@ -27,7 +27,7 @@ public class TbDemoMessage extends BaseMessage {
 
   public TbDemoMessage() {
   }
-  
+
   public TbDemo getTbDemo() {
     return tbDemo;
   }
