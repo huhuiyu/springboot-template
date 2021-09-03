@@ -1,0 +1,36 @@
+server:
+  port: 20000
+  servlet:
+    encoding:
+      force: true
+      charset: UTF-8
+spring:
+  jmx:
+    default-domain: springboot_gradle_basic
+  web: 
+    resources:
+      add-mappings: true
+  mvc:
+    throw-exception-if-no-handler-found: true
+  jackson:
+    default-property-inclusion: non-null
+    serialization:
+      write-dates-as-timestamps: true
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 50MB
+      max-file-size: 10MB
+      max-request-size: 10MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://huhuiyu.top:3306/db_springboot_basic_demo?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2b8
+    username: 数据库用户名
+    password: 数据库密码
+    hikari:
+      connection-test-query: select 1
+      max-lifetime: 60000
+mybatis:
+  config-location: classpath:mybatis-config.xml
+pagehelper:
+  reasonable: true

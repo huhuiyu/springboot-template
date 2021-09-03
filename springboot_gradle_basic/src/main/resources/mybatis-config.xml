@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <settings>
+    <!-- 开启下划线转驼峰表达式功能，例如数据库中字段名称中的user_info对应java对象的userInfo字段 -->
+    <setting name="mapUnderscoreToCamelCase" value="true" />
+  </settings>
+  <typeAliases>
+    <!-- entity对象所在包，该目录中的对象名称在mapper中可以省略包名称直接引用 -->
+    <package name="top.huhuiyu.springboot.gradle.basic.entity" />
+  </typeAliases>
+  <mappers>
+    <!-- 数据访问层对象所在包，自动匹配包里面同名的mapper和对应的xml配置文件 -->
+    <package name="top.huhuiyu.springboot.gradle.basic.dao" />
+  </mappers>
+</configuration>

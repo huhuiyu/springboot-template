@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.huhuiyu.springboot.gradle.basic.dao.TbDemoDAO">
+    
+  <select id="queryAll" resultType="TbDemo" parameterType="TbDemo" >
+    select did,demo_key,demo_value,lastupdate from tb_demo
+    <trim prefix="where" prefixOverrides="and">
+      <if test="demoKey!=null and demoKey!=''">
+         and demo_key like #{demoKey}
+      </if>
+      <if test="demoValue!=null and demoValue!=''">
+         and demo_value like #{demoValue}
+      </if>
+    </trim>
+  </select>
+
+  <!--
+  <select id="queryAll_COUNT" resultType="int">
+    select count(*) from tb_demo
+  </select>
+  -->
+
+  <select id="queryByKey" parameterType="TbDemo" resultType="TbDemo">
+    select did,demo_key,demo_value,lastupdate from tb_demo 
+    where did=#{did}
+  </select>
+  
+  <insert id="add" parameterType="TbDemo">
+    insert into tb_demo(demo_key,demo_value)
+    values(#{demoKey},#{demoValue})
+  </insert>
+  
+  <update id="update" parameterType="TbDemo">
+    update tb_demo set demo_key=#{demoKey},demo_value=#{demoValue}
+    where did=#{did}
+  </update>
+  
+  <delete id="delete" parameterType="TbDemo" >
+    delete from tb_demo
+    where did=#{did}
+  </delete>
+  
+</mapper>
