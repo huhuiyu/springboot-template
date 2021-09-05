@@ -7,6 +7,7 @@ import io.swagger.annotations.ApiModelProperty;
 import top.huhuiyu.springboot.gradle.basic.base.BaseMessage;
 import top.huhuiyu.springboot.gradle.basic.base.PageBean;
 import top.huhuiyu.springboot.gradle.basic.entity.TbDemo;
+import top.huhuiyu.springboot.gradle.basic.utils.JsonUtils;
 
 /**
  * TbDemo应答对象
@@ -50,5 +51,14 @@ public class TbDemoMessage extends BaseMessage {
 
   public void setList(List<TbDemo> list) {
     this.list = list;
+  }
+
+  @Override
+  public String toString() {
+    try {
+      return JsonUtils.stringify(this);
+    } catch (Exception ex) {
+      return null;
+    }
   }
 }

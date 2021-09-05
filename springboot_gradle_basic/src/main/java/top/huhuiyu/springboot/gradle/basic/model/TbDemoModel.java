@@ -5,6 +5,7 @@ import java.io.Serializable;
 import io.swagger.annotations.ApiParam;
 import top.huhuiyu.springboot.gradle.basic.base.PageBean;
 import top.huhuiyu.springboot.gradle.basic.entity.TbDemo;
+import top.huhuiyu.springboot.gradle.basic.utils.JsonUtils;
 
 /**
  * TbDemo的Model
@@ -39,11 +40,13 @@ public class TbDemoModel implements Serializable {
     this.page = page;
   }
 
-  /*
-   * 所有参数模板
-   * @ApiImplicitParam(name = "tbDemo.did", value = "描述：did", paramType = "query")
-   * @ApiImplicitParam(name = "tbDemo.demoKey", value = "描述：demoKey", paramType = "query")
-   * @ApiImplicitParam(name = "tbDemo.demoValue", value = "描述：demoValue", paramType = "query")
-   * @ApiImplicitParam(name = "tbDemo.lastupdate", value = "描述：lastupdate", paramType = "query")
-   */
+  @Override
+  public String toString() {
+    try {
+      return JsonUtils.stringify(this);
+    } catch (Exception ex) {
+      return null;
+    }
+  }
+
 }

@@ -3,6 +3,7 @@ package top.huhuiyu.springboot.gradle.basic.model;
 import java.io.Serializable;
 
 import io.swagger.annotations.ApiParam;
+import top.huhuiyu.springboot.gradle.basic.utils.JsonUtils;
 
 /**
  * 首页model数据
@@ -26,4 +27,12 @@ public class IndexModel implements Serializable {
     this.echo = echo;
   }
 
+  @Override
+  public String toString() {
+    try {
+      return JsonUtils.stringify(this);
+    } catch (Exception ex) {
+      return null;
+    }
+  }
 }

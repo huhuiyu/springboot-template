@@ -5,6 +5,7 @@ import java.util.Date;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import top.huhuiyu.springboot.gradle.basic.base.BaseMessage;
+import top.huhuiyu.springboot.gradle.basic.utils.JsonUtils;
 
 /**
  * 首页应答对象
@@ -40,4 +41,12 @@ public class IndexMessage extends BaseMessage {
     this.timestamp = timestamp;
   }
 
+  @Override
+  public String toString() {
+    try {
+      return JsonUtils.stringify(this);
+    } catch (Exception ex) {
+      return null;
+    }
+  }
 }

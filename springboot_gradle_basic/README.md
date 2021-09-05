@@ -9,3 +9,37 @@
     - [logback.xml](/springboot_gradle_basic/src/main/resources/logback.xml)中的`logger name`
     - [SwaggerConfig.java](/springboot_gradle_basic/src/main/java/top/huhuiyu/springboot/gradle/basic/config/SwaggerConfig.java)中的`basePackages`
     - [dao](/springboot_gradle_basic/src/main/resources/top/huhuiyu/springboot/gradle/basic/dao/)目录中所有的xml文件中包名称
+    - [ControllerLogger.java](/springboot_gradle_basic/src/main/java/top/huhuiyu/springboot/gradle/basic/aop/ControllerLogger.java)中的`@Pointcut`
+- 开发和包结构说明
+  - entity层是对应数据表和依赖关系（由于开启了mybatis转换功能，字段名称中_会自动转换成驼峰表达式）
+  - dao层和相关的mapper的xml文件（这个是最基本的数据库业务逻辑处理部分）dao和mapper的xml文件名一致就会自动匹配
+  - model层是前端传入数据结构（非必须，一般都有）
+  - message层是应答数据结果（非必须，一般都有）
+  - service和service/impl为业务层接口和实现层（开发中的核心！！！！）
+    - @Service注解标识服务层
+    - @Transactional(rollbackFor = Exception.class)注解标识业务抛出异常将回滚事务
+    - service层的作用是用页面传入数据通过业务逻辑处理后生成应答结果（一般和数据密切相关）
+  - controller层是前端交互层，用于生成前端接口收集数据和返回应答结果
+    - spring部分注解
+      - @RestController：标注控制器，且会将应答对象转换成json结果
+      - @PostMapping，@RequestMapping：接口访问路径配置
+    - swagger部分注解
+      - @Api：api文档标识
+      - @ApiOperation：前端接口标识
+      - @ApiImplicitParam，@ApiImplicitParams：接口参数标识
+  - aop包是切面编程的部分
+  - 开发流程
+    - 研究分析数据库和相应的数据表
+    - 创建entity对象（数据表和java对象映射）
+    - 创建dao相关对象（数据语句和业务逻辑基础，最简单的理解就是数据增删改查）
+    - 创建model和message层对象（定义传入和应答结果的数据结构,非必须，可以用entity代替，但是现实开发中都有同类型的对象）
+    - 创建service层完成业务逻辑
+    - 创建controller层完成前端接口对接service层的业务逻辑
+  - 其它部分
+    - base包里面是公用类或者基础类型
+    - config包里面是配置相关
+      - MyExceptionHandler是用于控制器处理抛出异常时统一应答json(spring:web:resources:add-mappings设置为false，且会关闭swagger功能，正式发布时的配置)
+      - MyWebConfig跨域配置
+      - SwaggerConfig基础配置
+    - schedule包里面是定时任务
+    - utils包里面是工具类
