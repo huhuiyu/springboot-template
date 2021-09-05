@@ -2,6 +2,7 @@ package top.huhuiyu.springboot.gradle.basic.base;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 
@@ -39,6 +40,7 @@ public class PageBean implements Serializable {
    * 
    * @param page 分页插件查询信息
    */
+  @JsonIgnore
   public void setPageInfo(Page<?> page) {
     this.setPageInfo(page.getTotal(), page.getPageSize(), page.getPageNum(), page.getPages());
   }
@@ -48,6 +50,7 @@ public class PageBean implements Serializable {
    * 
    * @param page 分页插件查询信息
    */
+  @JsonIgnore
   public void setPageInfo(PageInfo<?> page) {
     this.setPageInfo(page.getTotal(), page.getPageSize(), page.getPageNum(), page.getPages());
   }
@@ -60,6 +63,7 @@ public class PageBean implements Serializable {
    * @param pageNumber 页码
    * @param pageCount  页数
    */
+  @JsonIgnore
   public void setPageInfo(long total, Integer pageSize, Integer pageNumber, Integer pageCount) {
     this.total = total;
     this.pageSize = pageSize;

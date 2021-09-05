@@ -8,3 +8,4 @@
     - [mybatis-config.xml](/springboot_gradle_basic/src/main/resources/mybatis-config.xml)中的所有`package`
     - [logback.xml](/springboot_gradle_basic/src/main/resources/logback.xml)中的`logger name`
     - [SwaggerConfig.java](/springboot_gradle_basic/src/main/java/top/huhuiyu/springboot/gradle/basic/config/SwaggerConfig.java)中的`basePackages`
+    - [dao](/springboot_gradle_basic/src/main/resources/top/huhuiyu/springboot/gradle/basic/dao/)目录中所有的xml文件中包名称
